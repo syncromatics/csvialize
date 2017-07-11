@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E3C84B7C-CC91-4D73-BB39-FF11A0D61B37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A9E761D8-B6A3-4468-83CB-71ABCD5915D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csvialize", "src\Csvialize\Csvialize.csproj", "{58FE2937-34C4-4535-8715-051206E54F2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csvialize.UnitTests", "test\Csvialize.UnitTests\Csvialize.UnitTests.csproj", "{51EDA5E1-9CAF-4C79-A550-660BE00DB621}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58FE2937-34C4-4535-8715-051206E54F2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58FE2937-34C4-4535-8715-051206E54F2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58FE2937-34C4-4535-8715-051206E54F2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58FE2937-34C4-4535-8715-051206E54F2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51EDA5E1-9CAF-4C79-A550-660BE00DB621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51EDA5E1-9CAF-4C79-A550-660BE00DB621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51EDA5E1-9CAF-4C79-A550-660BE00DB621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51EDA5E1-9CAF-4C79-A550-660BE00DB621}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{58FE2937-34C4-4535-8715-051206E54F2C} = {E3C84B7C-CC91-4D73-BB39-FF11A0D61B37}
+		{51EDA5E1-9CAF-4C79-A550-660BE00DB621} = {A9E761D8-B6A3-4468-83CB-71ABCD5915D8}
+	EndGlobalSection
+EndGlobal
