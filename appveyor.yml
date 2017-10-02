@@ -11,4 +11,4 @@ build_script:
 test_script:
 - cmd: dotnet test
 deploy_script:
-- cmd: if %appveyor_repo_tag% == true (dotnet pack src/Csvialize --configuration Release /p:Version=%APPVEYOR_REPO_TAG_NAME% && nuget push src/Csvialize/bin/Release/*.nupkg -ApiKey %NUGET_API_KEY% -Source https://www.nuget.org/api/v3/package)
+- cmd: if %appveyor_repo_tag% == true (dotnet pack src/Csvialize --configuration Release /p:Version=%APPVEYOR_REPO_TAG_NAME% && nuget push src\Csvialize\bin\Release\*.nupkg -ApiKey %NUGET_API_KEY% -Source https://www.nuget.org/api/v3/package)
