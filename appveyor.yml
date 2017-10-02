@@ -1,0 +1,14 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+environment:
+  NUGET_API_KEY:
+    secure: C1gJAltwmvol+ugbEygpHMalz/w8hqLqm0XJ1ovVRBzniHJdU4aJC/ukBat4R2ir
+build_script:
+- cmd: >-
+    dotnet restore
+
+    dotnet build
+test_script:
+- cmd: dotnet test
+deploy_script:
+- cmd: if %appveyor_repo_tag% == true (dotnet pack src/Csvialize --configuration Release /p:Version=%APPVEYOR_REPO_TAG_NAME% && nuget push src/Csvialize/bin/Release/*.nupkg -ApiKey %NUGET_API_KEY%)
