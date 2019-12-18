@@ -14,7 +14,7 @@ namespace Csvialize.UnitTests
         private readonly string _usersString =   "Name,Age\r\nJim,45\r\nJoe,68\r\n";
 
         [Fact]
-        public void Can_serialize_csv()
+        public async void Can_serialize_csv()
         {
             var testModule = new ConfigurableNancyModule(config =>
             {
@@ -26,7 +26,7 @@ namespace Csvialize.UnitTests
                 with.Module(testModule);
             });
 
-            var response = browser.Get("/", context =>
+            var response = await browser.Get("/", context =>
             {
                 context.Accept(new MediaRange("text/csv"));
             });
@@ -39,7 +39,7 @@ namespace Csvialize.UnitTests
         }
 
         [Fact]
-        public void Can_deserialize_csv()
+        public async void Can_deserialize_csv()
         {
             var testModule = new ConfigurableNancyModule(config =>
             {
@@ -56,7 +56,7 @@ namespace Csvialize.UnitTests
                 with.Module(testModule);
             });
 
-            var response = browser.Post("/", context =>
+            var response = await browser.Post("/", context =>
             {
                 context.Body(_usersString, "text/csv");
                 context.Accept("text/csv");
