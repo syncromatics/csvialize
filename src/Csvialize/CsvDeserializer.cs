@@ -5,13 +5,15 @@ using System.Linq;
 using System.Reflection;
 using CsvHelper;
 using Nancy.ModelBinding;
+using Nancy.Responses.Negotiation;
 
 namespace Csvialize
 {
     public class CsvDeserializer : IBodyDeserializer
     {
-        public bool CanDeserialize(string contentType, BindingContext context)
+        public bool CanDeserialize(MediaRange mediaRange, BindingContext context)
         {
+            string contentType = mediaRange;
             if (string.IsNullOrEmpty(contentType))
             {
                 return false;
@@ -22,12 +24,10 @@ namespace Csvialize
             return contentMimeType.Equals(ContentTypes.Csv, StringComparison.InvariantCultureIgnoreCase);
         }
 
-        public object Deserialize(string contentType, Stream bodyStream, BindingContext context)
+        public object Deserialize(MediaRange mediaRange, Stream bodyStream, BindingContext context)
         {
             using (var reader = new CsvReader(new StreamReader(bodyStream)))
             {
-                reader.Configuration.IsHeaderCaseSensitive = false;
-
                 var modelType = context.GenericType ?? context.DestinationType;
                 var model = reader.GetRecords(modelType).ToList();
 

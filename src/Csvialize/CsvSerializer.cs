@@ -6,13 +6,15 @@ using System.Text;
 using CsvHelper;
 using Nancy;
 using Nancy.IO;
+using Nancy.Responses.Negotiation;
 
 namespace Csvialize
 {
-    public class CsvSerializer : ISerializer
+    public class CsvSerializer : Nancy.ISerializer
     {
-        public bool CanSerialize(string contentType)
+        public bool CanSerialize(MediaRange mediaRange)
         {
+            string contentType = mediaRange;
             if (string.IsNullOrEmpty(contentType))
             {
                 return false;
@@ -23,7 +25,7 @@ namespace Csvialize
             return contentMimeType.Equals(ContentTypes.Csv, StringComparison.InvariantCultureIgnoreCase);
         }
 
-        public void Serialize<TModel>(string contentType, TModel model, Stream outputStream)
+        public void Serialize<TModel>(MediaRange mediaRange, TModel model, Stream outputStream)
         {
             using (var writer = new CsvWriter(new StreamWriter(new UnclosableStreamWrapper(outputStream))))
             {
